@@ -29,7 +29,7 @@
         <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input class="uk-input" type="text" name="username">
+                <input class="uk-input" type="text" name="username" required>
             </div>
         </div>
 
@@ -38,28 +38,28 @@
         <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                <input class="uk-input" type="password" name="password" placeholder="Пароль">
+                <input class="uk-input" type="password" name="password" placeholder="Пароль" required>
             </div>
         </div>
 
         <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon"  uk-icon="icon: pencil"></span>
-                <input class="uk-input" type="text" name="name" placeholder="Имя">
+                <input class="uk-input" type="text" name="name" placeholder="Имя" required>
             </div>
         </div>
 
         <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon"  uk-icon="icon: pencil"></span>
-                <input class="uk-input" type="text" name="surname" placeholder="Фамилия">
+                <input class="uk-input" type="text" name="surname" placeholder="Фамилия" required>
             </div>
         </div>
 
         <div class="uk-margin">
             <div class="uk-inline">
                 <span class="uk-form-icon"  uk-icon="icon: mail"></span>
-                <input class="uk-input" type="email" name="email" placeholder="some@some.com">
+                <input class="uk-input" type="email" name="email" placeholder="some@some.com" required>
             </div>
         </div>
 

@@ -10,6 +10,7 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
 }
 
 .color-black{
@@ -73,9 +74,14 @@ html,body{
     left: 12%;
 }
 
-.avatar-block > img {
-    width: 100%;
+.avatar-block > div > img {
     border-radius: 100%;
+}
+
+
+.trans {
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
 }
 
 .information-block {
@@ -125,3 +131,8 @@ td{
 .inf-labels{
     padding-bottom: 137px;
 }
+
+.uk-overlay {
+    padding: 40px 40px !important;
+}
+

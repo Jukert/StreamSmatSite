@@ -35,4 +35,13 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
+    public void changeUser(User user, String username, String name, String surname, String email, String number){
+        user.setUsername(username);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setEmail(email);
+        user.setNumber(number);
+        userRepo.save(user);
+    }
+
 }

@@ -3,6 +3,4 @@
 
 <@c.page>
 <#include "parts/accountSetting.ftl">
-aaa
-
 </@c.page>

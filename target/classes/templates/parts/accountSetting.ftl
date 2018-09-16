@@ -2,7 +2,20 @@
 <div class="account-panel">
 
     <div class="avatar-block">
-        <img src="/static/images/man.svg" alt="">
+        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+            <img src="/static/images/man.svg" alt="">
+            <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default trans">
+                <div class="uk-h4 uk-margin-remove uk-text-center">
+                    <form action="/upload" method="post" class="js-upload" uk-form-custom enctype="multipart/form-data">
+                        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                        <input class="uk-button uk-button-text uk-text-capitalize" type="file" multiple>
+                        <button class="uk-button uk-button-text uk-text-capitalize">
+                            <span uk-icon="upload"></span>Загрузить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="text-initial uk-text-uppercase">${userSettings.getName()} ${userSettings.getSurname()}</div>
 
@@ -51,6 +64,7 @@
                 <li><div class="information-detailed">
                     <form action="/account/change" method="post">
                         <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                        <input type="hidden" name="userId" value="${userSettings.getId()}" />
                         <table class="uk-table uk-table-responsive uk-table-divider">
                             <tbody>
                             <tr>
@@ -67,15 +81,15 @@
                             </tr>
                             <tr>
                                 <td>Почта</td>
-                                <td><input class="uk-input changed-user-settings" id="form-stacked-text" type="text" name="email" value="<#if userSettings.getEmail()?? > ${userSettings.getEmail()} <#else> - </#if>" placeholder="Логин"></td>
+                                <td><input class="uk-input changed-user-settings" id="form-stacked-text" type="text" name="email" value="<#if userSettings.getEmail()?? >${userSettings.getEmail()}<#else> - </#if>" placeholder="Логин"></td>
                             </tr>
                             <tr>
                                 <td>Телефон</td>
-                                <td><input class="uk-input changed-user-settings" id="form-stacked-text" type="text" name="number" value="<#if userSettings.getNumber()?? > ${userSettings.getNumber()} <#else> - </#if>" placeholder="Логин"></td>
+                                <td><input class="uk-input changed-user-settings" id="form-stacked-text" type="text" name="number" value="<#if userSettings.getNumber()?? >${userSettings.getNumber()}<#else> - </#if>" placeholder="Логин"></td>
                             </tr>
                             <tr>
                                 <td>О себе</td>
-                                <td><textarea class="changed-user-settings uk-textarea" name="myself" id="" rows="5"><#if userSettings.getMyself()?? > ${userSettings.getMyself()} <#else> Пока информации о себе нету... </#if></textarea></td>
+                                <td><textarea class="changed-user-settings uk-textarea" name="myself" id="" rows="5"><#if userSettings.getMyself()?? >${userSettings.getMyself()}<#else> Пока информации о себе нету... </#if></textarea></td>
                             </tr>
                             </tbody>
                         </table>
