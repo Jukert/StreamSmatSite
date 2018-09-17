@@ -6,12 +6,10 @@
             <img src="/static/images/man.svg" alt="">
             <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default trans">
                 <div class="uk-h4 uk-margin-remove uk-text-center">
-                    <form action="/upload" method="post" class="js-upload" uk-form-custom enctype="multipart/form-data">
+                    <form action="/account" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="${_csrf.token}" />
-                        <input class="uk-button uk-button-text uk-text-capitalize" type="file" multiple>
-                        <button class="uk-button uk-button-text uk-text-capitalize">
-                            <span uk-icon="upload"></span>Загрузить
-                        </button>
+                        <span uk-icon="upload"><input class="uk-button uk-button-text uk-text-capitalize"  value="Загрузить" onclick="document.getElementById('inputLoad').click();"  type="file" >
+                        <button class="uk-button uk-button-text uk-text-capitalize" id="inputLoad" style="display: none"/>
                     </form>
                 </div>
             </div>
