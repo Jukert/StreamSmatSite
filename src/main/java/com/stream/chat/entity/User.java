@@ -20,7 +20,7 @@ public class User implements UserDetails {
     private String surname;
     private String email;
     private String number;
-    private String avatar;
+    private String avatar = null;
     private String myself;
     private boolean active;
 

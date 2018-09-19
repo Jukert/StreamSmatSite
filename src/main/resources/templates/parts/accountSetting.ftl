@@ -3,14 +3,7 @@
 
     <div class="avatar-block">
         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-            <img src="/static/images/man.svg" alt="">
-            <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default trans">
-                <div class="uk-h4 uk-margin-remove uk-text-center">
-                    <div class="js-upload" uk-form-custom>
-                        <a href="/account/changeAvatar/${userSettings.getId()}"><span uk-icon="upload"></span>Загрузить</a>
-                    </div>
-                </div>
-            </div>
+            <img src="<#if userSettings.getAvatar()??>/img/${userSettings.getAvatar()}<#else>/static/images/man.svg</#if>" alt="">
         </div>
     </div>
 
@@ -59,7 +52,7 @@
                     </div>
                 </li>
                 <li><div class="information-detailed">
-                    <form action="/account/change" method="post">
+                    <form action="/account/change" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="${_csrf.token}" />
                         <input type="hidden" name="userId" value="${userSettings.getId()}" />
                         <table class="uk-table uk-table-responsive uk-table-divider">
@@ -87,6 +80,14 @@
                             <tr>
                                 <td>О себе</td>
                                 <td><textarea class="changed-user-settings uk-textarea" name="myself" id="" rows="5"><#if userSettings.getMyself()?? >${userSettings.getMyself()}<#else> Пока информации о себе нету... </#if></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td>Фотография</td>
+                                <td class="js-upload" uk-form-custom>
+                                    <input type="file" name="file">
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Загрузить изображение</button>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
