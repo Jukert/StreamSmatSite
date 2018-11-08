@@ -3,7 +3,6 @@
 
 <@c.page>
 
-${greeting}
 <@v.notebook/>
 
 </@c.page>

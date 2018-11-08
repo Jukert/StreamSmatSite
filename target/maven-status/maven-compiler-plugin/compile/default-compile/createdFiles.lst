@@ -1,0 +1,10 @@
+com\stream\chat\Application.class
+com\stream\chat\repo\UserRepo.class
+com\stream\chat\entity\User.class
+com\stream\chat\controller\RegistrationController.class
+com\stream\chat\service\UserService.class
+com\stream\chat\config\MvcConfig.class
+com\stream\chat\entity\Role.class
+com\stream\chat\config\WebSecurityConfig.class
+com\stream\chat\controller\MainController.class
+com\stream\chat\controller\UserController.class

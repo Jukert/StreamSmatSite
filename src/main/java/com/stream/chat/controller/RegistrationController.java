@@ -6,21 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/registration")
 public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
+    @GetMapping("/registration")
     public String registration(){
         return "registration";
     }
 
-    @PostMapping
+    @PostMapping("/registration")
     public String addUser(User user, Model model){
 
         if (!userService.addUser(user)){
@@ -28,6 +27,20 @@ public class RegistrationController {
             return "registration";
         }
         return "redirect:/login";
+    }
+
+    @GetMapping("/activate/{code}")
+    public String activate(Model model, @PathVariable String code){
+
+        boolean isActivated =userService.activateUser(code);
+
+        if (isActivated){
+            model.addAttribute("message", "User successfully activate");
+        }else{
+            model.addAttribute("message", "Activated code is not found");
+        }
+
+        return "login";
     }
 
 }
